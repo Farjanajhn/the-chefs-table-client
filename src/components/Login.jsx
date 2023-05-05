@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import { Button, Container, Form } from 'react-bootstrap';
 import { FaGithub,FaGoogle } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignIn = event => {
     event.preventDefault();
     const form = event.target;
@@ -17,11 +18,11 @@ const Login = () => {
       .then(result => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
+        navigate('/');
       })
       .catch(error => {
       console.error(error)
-    })
-  }
+    }) }
   return (
     <div>
           <Container className='w-50 mx-auto my-4 border border-black px-4 py-4'>
