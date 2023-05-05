@@ -6,6 +6,7 @@ import { Button, Card, Container } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { FaThumbsUp } from 'react-icons/fa'
+import Recipes from '../../Pages/Recipes';
 
 const Ccards = ({ chefsInfo }) => {
   const {name,img,experience,likes,popular} = chefsInfo;
