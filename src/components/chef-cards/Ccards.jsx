@@ -8,8 +8,8 @@ import Row from 'react-bootstrap/Row';
 import { FaThumbsUp } from 'react-icons/fa'
 import Recipes from '../../Pages/Recipes';
 
-const Ccards = ({ chefsInfo }) => {
-  const {name,img,experience,likes,popular} = chefsInfo;
+const Ccards = ({ chefsInfo}) => {
+  const {id,name,img,experience,likes,popular} = chefsInfo;
   return (
  
         
@@ -18,7 +18,7 @@ const Ccards = ({ chefsInfo }) => {
 
       
 <Container className='mt-4'>
-      <Row>
+        <Row xs={1} md={2} lg={3} className="g-4 mt-4">
           <Col className="d-flex"lg={8}>
             <div className='w-25 h-25'>
               <Card.Img variant="top" src={img} /></div>
@@ -33,7 +33,7 @@ const Ccards = ({ chefsInfo }) => {
                  
                   <p>{likes}</p>
                 </div>
-                <Link to={`{/chefsInfo/${chefsInfo.id}`}><Button>View Recipe</Button></Link>
+                <Link to={`/recipes/${id}`}><Button>View Recipe</Button></Link>
   </Card.Body></div>
   
 </Card> 

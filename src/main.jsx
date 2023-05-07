@@ -15,6 +15,7 @@ import RecipeLayout from './components/layout/RecipeLayout';
 import Recipes from './Pages/Recipes';
 import AuthProvider from './Providers/AuthProvider';
 import Register from './components/Register';
+import PrivateRoute from './PrivateRoute';
 
 
 
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
         
       },
       {
+        path: '/recipes/:id',
+        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
+        
+      }
+     /*  {
         path: 'recipes',
         elements: <RecipeLayout></RecipeLayout>,
         children: [
@@ -49,7 +55,7 @@ const router = createBrowserRouter([
             loader:()=>fetch(`http://localhost:3000/recipes/${params.id}`)
           }
         ]
-      }
+      } */
 
      
 

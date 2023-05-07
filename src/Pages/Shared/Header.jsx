@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <div>
 
-<Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
         <Navbar.Brand >The-Chefs-Table</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -25,11 +25,12 @@ const Header = () => {
                 <Link to="/">Home</Link>
              
             <Nav.Link href="#pricing">Blog</Nav.Link>
+            <Nav.Link href="#pricing">Profile</Nav.Link>
             
           </Nav>
           <Nav>
               {
-                user && <Nav.Link href="#deets"><FaUserCircle style={{ fontSize: '2rem' }} /></Nav.Link>  
+                user && <Nav.Link href="#deets"><FaUserCircle style={{ fontSize: '2rem',color: 'white' }} /></Nav.Link>  
               }
               
               {
