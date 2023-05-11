@@ -6,7 +6,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import { AuthContext, } from '../Providers/AuthProvider';
 
 const Register = () => {
-/*   const [error,setError]=useState('') */
+  const [error,setError]=useState('') 
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleRegister = event => {
@@ -27,8 +27,8 @@ const Register = () => {
         
       })
       .catch(error => {
-        console.log(error)
-        setError(error)
+        console.log(error);
+        setError(error);
     })
       
 
@@ -70,7 +70,7 @@ const Register = () => {
           <Link to='/login'>Login</Link> 
         </Form.Text>
         <Form.Text className="text-danger">
-{/* {error} */}
+          
         </Form.Text>
         <Form.Text className="text-success">
 
