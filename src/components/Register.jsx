@@ -35,8 +35,10 @@ const Register = () => {
   }
 
   return (
-    <div>
-            <Container className='w-25 mx-auto'>
+      <Container className=' mx-auto'> 
+    <div className='d-flex gap-4 mt-4'>
+        <div className='w-50'>
+          
       <h3>Please Register</h3>
       <Form onSubmit={handleRegister}>
    
@@ -76,8 +78,13 @@ const Register = () => {
       
     
     </Form>
-    </Container>
-    </div>
+  
+      </div>
+      <div className="w-50">
+        <img  src="https://www.eventact.com/images/registration/registration.svg" alt="" />
+      </div>
+      </div>
+        </Container> 
   );
 };
 

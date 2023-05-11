@@ -26,7 +26,7 @@ const Header = () => {
              
             <Nav.Link href="#pricing">Blog</Nav.Link>
             <Nav.Link href="#pricing">Profile</Nav.Link>
-            
+    
           </Nav>
           <Nav>
               {
@@ -39,7 +39,7 @@ const Header = () => {
                   <Button variant="dark"><Link to="/login">Login</Link></Button> 
                    
               }
-              
+           
        
           
        

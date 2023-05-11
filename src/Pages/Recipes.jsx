@@ -39,7 +39,7 @@ const Recipes = () => {
     
    
       <Card>
-      <img className="w-50 h-30" src={recipes.img} alt="" />  
+      <img className="w-50 h-30 mx-auto" src={recipes.img} alt="" />  
         <Card.Header>{recipes.name}</Card.Header>
       <Card.Body>
           <Card.Title>{recipes.bio}</Card.Title>

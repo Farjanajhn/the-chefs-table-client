@@ -49,8 +49,13 @@ const Login = () => {
       console.error(error)
     }) }
   return (
-    <div>
-          <Container className='w-50 mx-auto my-4 border border-black px-4 py-4'>
+    <Container className=' mx-auto my-4 border border-black px-4 py-4'>
+    <div className='d-flex gap-4 mt-4'>
+      <div className='w-50'>
+        <img src="https://www.shutterstock.com/image-vector/man-key-near-computer-account-600w-1499141258.jpg" alt="" />
+      </div>
+      <div className='w-50'>
+          
       <h3 className='text-center'>Please login</h3>
       <Form className='mt-12' onSubmit={handleSignIn}>
    
@@ -66,7 +71,7 @@ const Login = () => {
         </Form.Group>
       
         
-        <Button type="submit">Login</Button>
+        <Button className="w-100"type="submit">Login</Button>
         <br></br>
         <Form.Text className="text-success">
             Don't have an account?
@@ -81,13 +86,16 @@ const Login = () => {
         <Form.Text className="text-success">
 
         </Form.Text>
-      
-    
         </Form>
-        <Button onClick={handleGoogleSignIn} variant="outline-secondary"><FaGoogle></FaGoogle>Login With google</Button>
-        <Button onClick={handleSignInWthGitHub} variant="outline-success"><FaGithub/>Login With github</Button>
-    </Container>
+        <div>
+          <Button className="ml-8"onClick={handleGoogleSignIn} variant="outline-secondary"><FaGoogle></FaGoogle>Login With google</Button>
+          <br />
+        <Button className="ml-4" onClick={handleSignInWthGitHub} variant="outline-success"><FaGithub/>Login With github</Button>
+      </div>
+   
     </div>
+    </div>
+     </Container>
   );
 };
 
