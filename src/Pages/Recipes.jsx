@@ -12,19 +12,7 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   console.log(recipes)
   
-/*   useEffect(() => {
-    fetch('http://localhost:3000/recipes')
-      .then(res => res.json())
-      .then(data => setRecipes(data))
-    const foundRecipe = recipes.find(recipe => recipe._id == id);
 
- 
-    
-    setRecipes(foundRecipe);
-    console.log(foundRecipe);
-  }, [id])
-   */
-  /*  const {img}  = recipes;  */
   useEffect(() => {
     fetch('http://localhost:3000/recipes')
         .then(res => res.json())
@@ -39,13 +27,11 @@ const Recipes = () => {
     
    
       <Card>
-      <img className="w-50 h-30 mx-auto" src={recipes.img} alt="" />  
-        <Card.Header>{recipes.name}</Card.Header>
+      <img className="w-50 h-20 mx-auto" src={recipes.img} alt="" />  
+        <Card.Header className='text-center'>{recipes.name}</Card.Header>
       <Card.Body>
           <Card.Title>{recipes.bio}</Card.Title>
-        <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
-        </Card.Text>
+       
         <Button variant="primary">Faviourite</Button>
       </Card.Body>
       
@@ -61,9 +47,7 @@ const Recipes = () => {
               Methods:{recipes.method1}
           </Card.Text>
         </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
+      
       </Card>
       <Card>
         

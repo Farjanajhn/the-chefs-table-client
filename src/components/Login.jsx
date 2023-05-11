@@ -4,35 +4,39 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { FaGithub,FaGoogle } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
-import { getAuth,GoogleAuthProvider,  signInWithPopup,GithubAuthProvider} from "firebase/auth";
-import app from '../firebase/firebase.config';
+
 
 const Login = () => {
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
-  const gitProvider = new GithubAuthProvider();
+  
+
+  const { signIn,signWithGoogle,signInWithGithub } = useContext(AuthContext);
+  const navigate = useNavigate();
+  
 
   const handleGoogleSignIn = () => {
-    signInWithPopup(auth, provider)
+    signWithGoogle()
       .then(result => {
-        const user = result.user;
-        console.log(user); })
+        const loggeduser = result.user;
+        console.log(loggeduser);
+        navigate('/');
+      })
       .catch(error => {
-      console.log('error',error.massage)
+        console.log('error', error.massage);
     })
   }
   const handleSignInWthGitHub = () => {
     
-    signInWithPopup(auth, gitProvider)
+    signInWithGithub()
     .then(result => {
-      const user = result.user;
-      console.log(user); })
+      const signedUser = result.user;
+      console.log(signedUser);
+      Form.reset();
+    })
     .catch(error => {
     console.log('error',error.massage)
   })
   }
-  const { signIn } = useContext(AuthContext);
-  const navigate = useNavigate();
+ 
   const handleSignIn = event => {
     event.preventDefault();
     const form = event.target;

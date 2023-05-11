@@ -11,7 +11,7 @@ import {
 import Main from './components/Main.jsx/Main.jsx';
 import Home from './components/Home/Home.jsx';
 import Login from './components/Login.jsx';
-import RecipeLayout from './components/layout/RecipeLayout';
+
 import Recipes from './Pages/Recipes';
 import AuthProvider from './Providers/AuthProvider';
 import Register from './components/Register';
