@@ -9,21 +9,22 @@ import { FaThumbsUp } from 'react-icons/fa'
 import Recipes from '../../Pages/Recipes';
 
 const Ccards = ({ chefsInfo}) => {
-  const {id,name,img,experience,likes,popular} = chefsInfo;
+  const {id,name,img,experience,likes} = chefsInfo;
   return (
  
 
      
         <Col>
           <Card>
-         <div className='d-flex'> <div className='w-50 h-50'>
-              <Card.Img variant="top" src={img} />
+        <div className='d-flex position-relative'>
+          <div className='w-75 h-75'>
+              <Card.Img className='w-50 h-50' variant="top" src={img} />
             </div>
             <div>
-                <Card.Body className='pt-48'>
+                <Card.Body className='mr-4'>
                 <h4>{name}</h4>
                 <p><small>Experience:{experience}</small></p>
-                  <div className='d-flex'>
+                  <div className='d-flex '>
                   <FaThumbsUp />
     
                  
@@ -33,7 +34,7 @@ const Ccards = ({ chefsInfo}) => {
                 </div>
        
                 </Card.Body>
-                <Link to={`/recipes/${id}`}><Button className=' ms-12 w-100'>View Recipe</Button></Link></div>
+                <Link to={`/recipes/${id}`}><Button className='btn btn-dark position-absolute bottom-0 end-0 ms-12 w-100'>View Recipe</Button></Link></div>
             </div>
            
 

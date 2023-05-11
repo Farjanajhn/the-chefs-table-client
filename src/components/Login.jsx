@@ -52,7 +52,7 @@ const Login = () => {
     <Container className=' mx-auto my-4 border border-black px-4 py-4'>
     <div className='d-flex gap-4 mt-4'>
       <div className='w-50'>
-        <img src="https://www.shutterstock.com/image-vector/man-key-near-computer-account-600w-1499141258.jpg" alt="" />
+        <img src="https://nordvpn.com/wp-content/uploads/blog-featured-nordvpn-login-and-sign-up-process-explained-1.svg" alt="" />
       </div>
       <div className='w-50'>
           

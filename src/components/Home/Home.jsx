@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Carousel, Container, Row } from 'react-bootstrap';
 import Ccards from '../chef-cards/Ccards';
 import FindUs from '../FindUs';
+import QuestionAndAnswer from '../QuestionAndAnswer';
 
 
 const Home = () => {
@@ -17,14 +18,15 @@ const Home = () => {
  
       
       <Card className="bg-dark text-white">
-      <Card.Img src="https://as2.ftcdn.net/v2/jpg/03/47/83/55/1000_F_347835560_LgrrNmUnKa2DaiYcHHNwCK0IBqgyqMU2.jpg" alt="Card image" />
-      <Card.ImgOverlay>
-        <Card.Title>Card title</Card.Title>
-        <Card.Text>
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
+      <Card.Img className="h-40 w-75 mx-auto" src="https://www.dochipo.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2021/01/banner-1.png.webp" alt="Card image" />
+      <Card.ImgOverlay className='position-relative mt-64 pt-12'>
+        <Card.Title className='text-center'> "Discovering the Flavors of India: A Journey Through the Exquisite Cuisine of the Subcontinent"
+</Card.Title>
+        <Card.Text  className='text-center'>
+       
+Indian cuisine is a feast for the senses, with its vibrant colors, bold spices, and rich aromas that come together to create a truly unforgettable culinary experience. From the fragrant biryanis and curries of the north to the spicy seafood delicacies of the south, the diverse and flavorful dishes of India reflect the country's rich cultural heritage and centuries-old culinary traditions. Embark on a journey through the exquisite cuisine of the subcontinent and discover the magic of Indian food for yourself.
         </Card.Text>
-        <Card.Text>Last updated 3 mins ago</Card.Text>
+      
       </Card.ImgOverlay>
     </Card>
 
@@ -36,7 +38,7 @@ const Home = () => {
         
         <div className='mx-auto '>
           
-          <Row xs={2} md={4} lg={2} className="g-4">
+          <Row xs={1} md={4} lg={2} className="g-4">
         {
           chefsInfos.map(chefsInfo => <Ccards
             key={chefsInfo.id} chefsInfo={chefsInfo}>
@@ -51,6 +53,9 @@ const Home = () => {
 
       <Container>
       <FindUs></FindUs>
+      </Container>
+      <Container className='mx-auto mt-4 '>
+        <QuestionAndAnswer></QuestionAndAnswer>
       </Container>
     
 </Container>
