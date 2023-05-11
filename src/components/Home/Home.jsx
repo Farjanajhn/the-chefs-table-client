@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Carousel, Container } from 'react-bootstrap';
+import { Card, Carousel, Container, Row } from 'react-bootstrap';
 import Ccards from '../chef-cards/Ccards';
 import FindUs from '../FindUs';
 
@@ -29,17 +29,25 @@ const Home = () => {
     </Card>
 
     
-      <Container>
+  
         <h3 className='text-center mt-4'>World reknowned Chefs of India</h3>
+
+        <Container className='ml-12 mt-4 '>
+        
+        <div className='mx-auto '>
+          
+          <Row xs={2} md={4} lg={2} className="g-4">
         {
           chefsInfos.map(chefsInfo => <Ccards
             key={chefsInfo.id} chefsInfo={chefsInfo}>
           
 
           </Ccards>)
-      }
-     
-      </Container>
+            }
+            </Row>
+              </div>
+    </Container>
+
 
       <Container>
       <FindUs></FindUs>

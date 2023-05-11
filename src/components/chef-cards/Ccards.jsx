@@ -12,14 +12,40 @@ const Ccards = ({ chefsInfo}) => {
   const {id,name,img,experience,likes,popular} = chefsInfo;
   return (
  
-        
-    <div className=''>
+
+     
+        <Col>
+          <Card>
+         <div className='d-flex'> <div className='w-50 h-50'>
+              <Card.Img variant="top" src={img} />
+            </div>
+            <div>
+                <Card.Body className='pt-48'>
+                <h4>{name}</h4>
+                <p><small>Experience:{experience}</small></p>
+                  <div className='d-flex'>
+                  <FaThumbsUp />
+    
+                 
+                    <p>{likes}</p>
+                    
+                  
+                </div>
+       
+                </Card.Body>
+                <Link to={`/recipes/${id}`}><Button className=' ms-12 w-100'>View Recipe</Button></Link></div>
+            </div>
+           
+
+          </Card>
+        </Col>
+   
+   );
+  };
 
 
-      
-<Container className='mt-4'>
-        <Row xs={1} md={2} lg={3} className="g-4 mt-4">
-          <Col className="d-flex"lg={8}>
+    {/*     <Row xs={1} md={2} lg={3} className="g-4 mt-4">
+          <Col className="d-flex">
             <div className='w-25 h-25'>
               <Card.Img variant="top" src={img} /></div>
             <Card className='w-50'>
@@ -38,27 +64,18 @@ const Ccards = ({ chefsInfo}) => {
   
 </Card> 
           </Col>
-          
+           */}
  
-          <Col lg={4}>
+         {/*  <Col lg={4}>
            
           
             <div >
               <img className='w-75 h25 mx-auto img-fluid border ' src={popular} alt="..." />
             </div>
-        </Col>
-      </Row>
+        </Col> */}
+    {/*   </Row> */}
       
-    </Container>
-
-
-
-
-    </div>
-   
-
   
-  );
-};
+
 
 export default Ccards;
