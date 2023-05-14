@@ -6,9 +6,12 @@ import { Link,useNavigate } from 'react-router-dom';
 import { AuthContext, } from '../Providers/AuthProvider';
 
 const Register = () => {
-  const [error,setError]=useState('') 
+ 
   const { createUser } = useContext(AuthContext);
+ 
   const navigate = useNavigate();
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const handleRegister = event => {
     event.preventDefault();
     const form = event.target;
@@ -23,12 +26,14 @@ const Register = () => {
       .then(result => {
         const createdUser = result.user;
         console.log(createdUser);
+        setSuccess('User created successfully')
         navigate('/')
+       
         
       })
       .catch(error => {
         console.log(error);
-        setError(error);
+      setError(error)
     })
       
 
@@ -69,11 +74,9 @@ const Register = () => {
             Already have an account?
           <Link to='/login'>Login</Link> 
         </Form.Text>
-        <Form.Text className="text-danger">
-          
-        </Form.Text>
+            <p>{error}</p>
         <Form.Text className="text-success">
-
+              <p>{success}</p>
         </Form.Text>
       
     

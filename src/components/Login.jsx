@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link ,useLocation,useNavigate} from 'react-router-dom';
 import { Button, Container, Form } from 'react-bootstrap';
 import { FaGithub,FaGoogle } from "react-icons/fa";
@@ -7,7 +7,7 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 
 const Login = () => {
-  
+
 
   const { signIn,signWithGoogle,signInWithGithub } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -24,6 +24,7 @@ const Login = () => {
       })
       .catch(error => {
         console.log('error', error.massage);
+       /*  setError(error.massage) */
     })
   }
   const handleSignInWthGitHub = () => {
@@ -34,8 +35,10 @@ const Login = () => {
       console.log(signedUser);
       Form.reset();
     })
-    .catch(error => {
-    console.log('error',error.massage)
+      .catch(error => {
+      
+ alert('error', error.massage);
+     /*  setError(error) */
   })
   }
  
@@ -52,7 +55,9 @@ const Login = () => {
         navigate(from);
       })
       .catch(error => {
-      console.error(error)
+        console.error(error.massage);
+        alert('error', error.massage);
+/*       setError(error); */
     }) }
   return (
     <Container className=' mx-auto my-4 border border-black px-4 py-4'>

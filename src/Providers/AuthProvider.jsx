@@ -11,10 +11,14 @@ import { useState } from 'react';
 const auth = getAuth(app); 
 
 export const AuthContext = createContext(null);
+
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   
   const [loading, setLoading] = useState(true);
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -42,10 +46,10 @@ const AuthProvider = ({ children }) => {
   
 
   const signWithGoogle = () => {
-    return signInWithPopup(auth, GoogleAuthProvider);
+    return signInWithPopup(auth, googleProvider);
   }
   const signInWithGithub = () => {
-    return signInWithPopup(auth, GithubAuthProvider);
+    return signInWithPopup(auth, githubProvider);
   }
   const authInfo = {
     user, createUser, signIn, logOut, loading,

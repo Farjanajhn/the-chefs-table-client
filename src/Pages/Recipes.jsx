@@ -2,10 +2,13 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Card, Carousel, Container,Button,CardGroup } from 'react-bootstrap';
+import { Card, Toast, Button, CardGroup } from 'react-bootstrap';
+
 
 
 const Recipes = () => {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const { id } = useParams();
   console.log(id)
 
@@ -20,7 +23,11 @@ const Recipes = () => {
             const foundRecipe = data.find(recipe => recipe._id == id);
             setRecipes(foundRecipe);
         })
-}, [id]);
+  }, [id]);
+  const handleFavoriteClick = () => {
+    setIsFavorite(true);
+    setShowToast(true);
+  };
   
   return (
     <div>
@@ -32,7 +39,23 @@ const Recipes = () => {
       <Card.Body>
           <Card.Title>{recipes.bio}</Card.Title>
        
-        <Button variant="primary">Faviourite</Button>
+          <>
+      <Button
+        variant="outline-primary"
+        disabled={isFavorite}
+        onClick={handleFavoriteClick}
+      >
+        {isFavorite ? 'Favorite' : 'Add to Favorites'}
+      </Button>
+
+      <Toast
+        show={showToast}
+        onClose={() => setShowToast(false)}
+        delay={3000}
+        autohide>
+        <Toast.Body>The recipe is my favorite!</Toast.Body>
+      </Toast>
+    </>
       </Card.Body>
       
       </Card>
