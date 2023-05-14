@@ -4,6 +4,7 @@ import { Button, Container, Nav, Navbar, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
+import ActiveLink from '../../components/ActiveLink/ActiveLink';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext); 
@@ -20,12 +21,12 @@ const Header = () => {
         <Navbar.Brand >The-Chefs-Table</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto">
+          <Nav className="mx-auto text-decoration-none">
               
-                <Link to="/">Home</Link>
+              <Link className='text-decoration-none text-white margin-right-4 ' to="/">Home</Link>
+                <Link className='text-decoration-none text-white' to="/blog ">Blog</Link>
              
-            <Nav.Link href="#pricing">Blog</Nav.Link>
-            <Nav.Link href="#pricing">Profile</Nav.Link>
+         
     
           </Nav>
           <Nav>
@@ -35,8 +36,9 @@ const Header = () => {
               
               {
                 user ?
-                  <Button onClick={handleLogOut} variant="dark">Logout</Button> :
-                  <Button variant="dark"><Link to="/login">Login</Link></Button> 
+                  <Button className='text-decoration-none text-white' onClick={handleLogOut} >Logout</Button> :
+                  <Button
+                  ><Link className='text-decoration-none text-white' to="/login">Login</Link></Button> 
                    
               }
            

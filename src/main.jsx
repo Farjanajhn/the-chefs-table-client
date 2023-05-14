@@ -17,6 +17,7 @@ import AuthProvider from './Providers/AuthProvider';
 import Register from './components/Register';
 import PrivateRoute from './PrivateRoute';
 import ErrorHandle from './components/ErrorHandle';
+import Blogs from './components/Blogs';
 
 
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         element:<Home></Home>
       },
       {
+        path: 'blog',
+        element:<Blogs></Blogs>
+      },
+      {
         path: 'login',
         element:<Login></Login>
       },
@@ -46,6 +51,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Recipes></Recipes></PrivateRoute>
         
       },
+
       
         {
           path: '*',

@@ -2,7 +2,7 @@ import React from 'react';
 
 const QuestionAndAnswer = () => {
   return (
-    <div className='d-flex justify-content-between'>
+    <div className='d-flex justify-between mx-auto'>
       <div>
       1.What is paneer? <br/>
 2.Where was chicken tikka masala invented? <br/>
