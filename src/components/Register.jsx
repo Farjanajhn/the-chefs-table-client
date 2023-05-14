@@ -6,12 +6,13 @@ import { Link,useNavigate } from 'react-router-dom';
 import { AuthContext, } from '../Providers/AuthProvider';
 
 const Register = () => {
+  const [error, setError] = useState('')
+  const [success,setSuccess]=useState('')
  
   const { createUser } = useContext(AuthContext);
  
   const navigate = useNavigate();
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+
   const handleRegister = event => {
     event.preventDefault();
     const form = event.target;
@@ -21,23 +22,48 @@ const Register = () => {
     const photo = form.photo.value;
 
     console.log(name, photo, password, email)
+  if (!email || !password) {
+      setError('A USER CAN NOT SUBMIT AN EMPTY EMAIL AND PASSWORD FIELDS');
+      return;
+    }
+   else if (password.length < 6) {
+      setError('password should be more than 6 character')
+      return;
+    }
 
     createUser(email, password)
       .then(result => {
         const createdUser = result.user;
         console.log(createdUser);
-        setSuccess('User created successfully')
+        setError('');
+        event.target.reset();
+        setSuccess('User created successfully');
+    /*     updateUserData(result.user.name) */
         navigate('/')
        
         
       })
       .catch(error => {
-        console.log(error);
-      setError(error)
-    })
       
+        const errorMessage = error.message
+        const errorCode = error.code;
 
+       console.error(errorCode); 
+        setError(errorMessage )
+    })
   }
+/*   const updateUserData = (user,name) => {
+    updateProfile(user, {
+      displayName: name
+    }).then(() => {
+     console.log('user name updated')
+    }).catch((error) => {
+     setError(error.massage)
+    });
+  }
+
+
+ */
 
   return (
       <Container className=' mx-auto'> 
@@ -49,21 +75,21 @@ const Register = () => {
    
         <Form.Group className="mb-3">
           <Form.Label >Name</Form.Label>
-          <Form.Control type="text" name="name" placeholder="Enter name" required />
+          <Form.Control type="text" name="name" placeholder="Enter name"  />
         </Form.Group>
    
         <Form.Group className="mb-3">
           <Form.Label >Photo URL</Form.Label>
-          <Form.Control type="text" name="photo" placeholder="Enter photo url" required />
+          <Form.Control type="text" name="photo" placeholder="Enter photo url"  />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label >Email Address</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Enter email" required />
+          <Form.Control type="email" name="email" placeholder="Enter email"  />
         </Form.Group>
         <Form.Group className="mb-3">
             <Form.Label 
           >Password</Form.Label>
-           <Form.Control type="password" name="password" placeholder="Enter password" required />
+           <Form.Control type="password" name="password" placeholder="Enter password"  />
 
         </Form.Group>
       
@@ -74,7 +100,11 @@ const Register = () => {
             Already have an account?
           <Link to='/login'>Login</Link> 
         </Form.Text>
-            <p>{error}</p>
+ 
+        <Form.Text className="text-danger">
+        <p>{error}</p>
+        </Form.Text>
+      
         <Form.Text className="text-success">
               <p>{success}</p>
         </Form.Text>
