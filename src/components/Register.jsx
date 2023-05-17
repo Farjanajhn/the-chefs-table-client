@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -6,10 +8,13 @@ import { Link,useNavigate } from 'react-router-dom';
 import { AuthContext, } from '../Providers/AuthProvider';
 
 const Register = () => {
+
+
+
   const [error, setError] = useState('')
 
  
-  const { createUser } = useContext(AuthContext);
+  const { createUser,   updateUser } = useContext(AuthContext);
  
   const navigate = useNavigate();
 
@@ -20,8 +25,8 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
-
-    console.log(name, photo, password, email)
+/* 
+    console.log(name, photo, password, email) */
   if (!email || !password) {
       setError('A USER CAN NOT SUBMIT AN EMPTY EMAIL AND PASSWORD FIELDS');
       return;
@@ -33,12 +38,19 @@ const Register = () => {
 
     createUser(email, password)
       .then(result => {
-        const createdUser = result.user;
-        console.log(createdUser);
+        const user = result.user;
+        console.log(user);
+          //updated user profile
+      
+        updateUser(user, { displayName: name, photoURL: photo })
+      .then(() => {
+      console.log('profile updated')
+      })
+      .catch((error) => {
+      console.log(error)
+    }) 
         setError('');
         event.target.reset();
-
-    /*     updateUserData(result.user.name) */
         navigate('/')
        
         
@@ -50,20 +62,13 @@ const Register = () => {
 
        console.error(errorCode); 
         setError(errorMessage )
-    })
+      })
+ 
   }
-/*   const updateUserData = (user,name) => {
-    updateProfile(user, {
-      displayName: name
-    }).then(() => {
-     console.log('user name updated')
-    }).catch((error) => {
-     setError(error.massage)
-    });
-  }
+ 
 
 
- */
+ 
 
   return (
       <Container className=' mx-auto'> 
