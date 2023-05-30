@@ -8,8 +8,8 @@ const PrivateRoute = ({children}) => {
   const location = useLocation()
   console.log(location);
   if (loading) {
-    return <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+    return <div className="spinner-border" role="status">
+    <span className="visually-hidden">Loading...</span>
   </div>
   }
   if (user){

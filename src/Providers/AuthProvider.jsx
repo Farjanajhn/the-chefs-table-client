@@ -21,15 +21,18 @@ const AuthProvider = ({ children }) => {
   const githubProvider = new GithubAuthProvider();
 
   const createUser = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
   const signIn = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   }
 
-  const updateUser = (name,photo) => {
-    return updateProfile(auth,name,photo)
+  const updateUser = (name, photo) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, { displayName:name, photoURL:photo })
   } 
 
   const logOut = () => {

@@ -45,36 +45,9 @@ const Ccards = ({ chefsInfo}) => {
   };
 
 
-    {/*     <Row xs={1} md={2} lg={3} className="g-4 mt-4">
-          <Col className="d-flex">
-            <div className='w-25 h-25'>
-              <Card.Img variant="top" src={img} /></div>
-            <Card className='w-50'>
-              <div>
-                <Card.Body className='pt-12'>
-                <h4>{name}</h4>
-                <p><small>Experience:{experience}</small></p>
-                  <div className='d-flex'>
-                  <FaThumbsUp />
-    
-                 
-                  <p>{likes}</p>
-                </div>
-                <Link to={`/recipes/${id}`}><Button>View Recipe</Button></Link>
-  </Card.Body></div>
-  
-</Card> 
-          </Col>
-           */}
- 
-         {/*  <Col lg={4}>
+   
            
-          
-            <div >
-              <img className='w-75 h25 mx-auto img-fluid border ' src={popular} alt="..." />
-            </div>
-        </Col> */}
-    {/*   </Row> */}
+        
       
   
 

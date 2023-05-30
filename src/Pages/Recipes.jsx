@@ -63,7 +63,8 @@ const Recipes = () => {
       <CardGroup>
       <Card>
         
-        <Card.Body>
+          <Card.Body>
+            <img src={recipes.photo1} alt="" />
             <Card.Title>{recipes.recipe1}</Card.Title>
             <p>Ingredient:{recipes.ingredients1}</p>
           <Card.Text>
@@ -74,7 +75,8 @@ const Recipes = () => {
       </Card>
       <Card>
         
-        <Card.Body>
+          <Card.Body>
+          <img className=""src={recipes.photo2} alt="" />
             <Card.Title>{recipes.recipe2}</Card.Title>
             <p>Ingredient:{recipes.ingredients2}</p>
           <Card.Text>
@@ -85,7 +87,8 @@ const Recipes = () => {
       </Card>
       <Card>
   
-        <Card.Body>
+          <Card.Body>
+          <img src={recipes.photo1} alt="" />
             <Card.Title>{recipes.recipe3}</Card.Title>
             <p>Ingredient:{recipes.ingredients3}</p>
           <Card.Text>

@@ -6,7 +6,7 @@ const FindUs = () => {
   return (
   
     <Container className='mt-4'>
-   <h1 className='text-center'>Find Us on</h1>
+   <h1 className='text-center my-4'>Find Us on</h1>
    <Row className='gap-2'>
           <Col className='border mt-12'>
         

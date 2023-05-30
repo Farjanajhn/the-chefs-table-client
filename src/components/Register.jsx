@@ -42,7 +42,7 @@ const Register = () => {
         console.log(user);
           //updated user profile
       
-        updateUser(user, { displayName: name, photoURL: photo })
+        updateUser(name,photo )
       .then(() => {
       console.log('profile updated')
       })
