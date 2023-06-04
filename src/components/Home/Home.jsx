@@ -8,7 +8,7 @@ import QuestionAndAnswer from '../QuestionAndAnswer';
 const Home = () => {
   const [chefsInfos, setChefsInfos] = useState([])
   useEffect(() => {
-    fetch('http://localhost:3000/chefsInfos')
+    fetch('http://localhost:8080/chefsInfos')
       .then(res => res.json())
       .then(data => setChefsInfos(data))
     .catch(error=>console.error(error))

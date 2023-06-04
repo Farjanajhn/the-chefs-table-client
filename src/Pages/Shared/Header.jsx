@@ -35,13 +35,11 @@ const Header = () => {
   user && (
     <OverlayTrigger
       placement="bottom"
-      overlay={<Tooltip>{user.displayName}</Tooltip>}
+      overlay={<Tooltip>{user?.displayName}</Tooltip>}
     >
       <Nav.Link href="#deets">
         <FaUserCircle
-         
-          style={{ fontSize: '2.5rem', color: 'white' }}
-        />
+         style={{ fontSize: '2.5rem', color: 'white' }}>{user?.photoURL}</FaUserCircle>
       </Nav.Link>
     </OverlayTrigger>
   )

@@ -17,7 +17,7 @@ const Recipes = () => {
   
 
   useEffect(() => {
-    fetch('http://localhost:3000/recipes')
+    fetch('http://localhost:8080/recipes')
         .then(res => res.json())
         .then(data => {
             const foundRecipe = data.find(recipe => recipe._id == id);
@@ -35,9 +35,13 @@ const Recipes = () => {
    
       <Card>
       <img className="w-50 h-20 mx-auto" src={recipes.img} alt="" />  
-        <Card.Header className='text-center'>{recipes.name}</Card.Header>
+        <Card.Header className='text-center fs-3'>{recipes.name}</Card.Header>
       <Card.Body>
           <Card.Title>{recipes.bio}</Card.Title>
+          <div className='d-flex gap-4 fs-6'>
+            <p>Experience:{recipes.experience}</p>
+            <p>Number of recipes:{recipes.recipes}</p>
+      </div>
        
           <>
       <Button
@@ -64,19 +68,20 @@ const Recipes = () => {
       <Card>
         
           <Card.Body>
-            <img src={recipes.photo1} alt="" />
+     
             <Card.Title>{recipes.recipe1}</Card.Title>
             <p>Ingredient:{recipes.ingredients1}</p>
           <Card.Text>
               Methods:{recipes.method1}
           </Card.Text>
-        </Card.Body>
+          </Card.Body>
+          
       
       </Card>
       <Card>
         
           <Card.Body>
-          <img className=""src={recipes.photo2} alt="" />
+        
             <Card.Title>{recipes.recipe2}</Card.Title>
             <p>Ingredient:{recipes.ingredients2}</p>
           <Card.Text>
@@ -88,7 +93,7 @@ const Recipes = () => {
       <Card>
   
           <Card.Body>
-          <img src={recipes.photo1} alt="" />
+          
             <Card.Title>{recipes.recipe3}</Card.Title>
             <p>Ingredient:{recipes.ingredients3}</p>
           <Card.Text>
